@@ -1,0 +1,58 @@
+/*border-box to everything!*/
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/*fit content*/
+h2 {
+  width: -moz-fit-content;
+  width: fit-content;
+  border: 2px dotted;
+}
+/*padding to all lines in text*/
+p {
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+  padding-left: 8px;
+  padding-right: 8px;
+  background: peachpuff;
+}
+
+/* inline block allows you to give width and high (block styling) to inline elements*/
+strong {
+  display: inline-block;
+  width: 200px;
+  background: red;
+}
+/*min-content breaks it to smallest possible pieces*/
+h1 {
+  width: min-content;
+  background-color: fuchsia;
+}
+/*Fit-content makes the background only around the letters and it breaks into new lines*/
+h2 {
+  /* Firefox requires a vendor prefix */
+  width: -moz-fit-content;
+  width: fit-content /*or width: max-content!*/;
+  background-color: peachpuff;
+  margin-bottom: 16px;
+  padding: 8px;
+}
+/*have the height of the page to be 100%*/
+html, body {
+  height: 100%;
+}
+.content-wrapper {
+  min-height: 100%;
+}
+
+/*Margin collapse:
+Margin is meant to increase the distance between siblings. It is not meant to increase the gap between a child and its parent's bounding box; that's what padding is for.
+
+Margin will always try and increase distance between siblings, even if it means transferring margin to the parent element!
+
+Margins must be touching in order for them to collapse (padding, border or explixit parent hight will not cause collapse!)
+*/
+
