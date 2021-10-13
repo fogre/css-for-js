@@ -1,4 +1,4 @@
-#css-for-js
+# css-for-js
 
 This git contains the workshops done for [css-for-js developers course](https://css-for-js.dev/) by [Josh W Comeau](https://twitter.com/JoshWComeau).
 
