@@ -56,3 +56,9 @@ Margin will always try and increase distance between siblings, even if it means 
 Margins must be touching in order for them to collapse (padding, border or explixit parent hight will not cause collapse!)
 */
 
+/*add margin to n > 1 childs*/
+{
+  &:not(:first-of-type) {
+    margin-left: var(--spacing);
+}
+
