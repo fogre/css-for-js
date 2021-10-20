@@ -13,10 +13,10 @@ const Select = ({ label, value, onChange, children }) => {
       <SelectWrapper value={value} onChange={onChange}>
         {children}
       </SelectWrapper>
-      <Button>
+      <DisplayedWrapper>
         {displayedValue}
         <Icon id={'chevron-down'} size={14} strokeWidth={3}/>
-      </Button>
+      </DisplayedWrapper>
     </Wrapper>
   );
 };
@@ -30,7 +30,7 @@ const SelectWrapper = styled.select`
   height: 100%;
   -webkit-appearance: none;
 `
-const Button = styled.div`
+const DisplayedWrapper = styled.div`
   font-size: 16px;
   display: inline-flex;
   gap: 24px;

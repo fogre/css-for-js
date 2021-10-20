@@ -60,5 +60,7 @@ Margins must be touching in order for them to collapse (padding, border or expli
 {
   &:not(:first-of-type) {
     margin-left: var(--spacing);
+   a:first-of-type {
+   }
 }
 
