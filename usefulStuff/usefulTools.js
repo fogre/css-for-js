@@ -16,3 +16,32 @@ function findCulprits(elem) {
   }
 }
 findCulprits(document.querySelector(selector));
+
+/*
+https://courses.joshwcomeau.com/playground/css-variables/beachday
+*/
+
+/*Count scrollbar width: We want to make sure to set the --scrollbar-width as early as possible.*/
+document.documentElement.style.setProperty(
+  '--scrollbar-width',
+  scrollbarWidth + 'px'
+);
+/*react:*/
+  React.useEffect(() => {
+    document.documentElement.style.setProperty(
+      '--scrollbar-width',
+      window.innerWidth - document.documentElement.clientWidth + 'px'
+    );
+  }, []);
+
+/*css
+html {
+  --full-width: calc(100vw - var(--scrollbar-width));
+}
+body {
+  overflow-y: scroll; needed if the page doesn't always have a scroll
+}
+.wrapper {
+  width: var(--full-width);
+}
+*/
