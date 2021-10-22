@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components/macro';
 
-import { COLORS, QUERIES, WEIGHTS } from '../../constants';
+import { COLORS, QUERIES } from '../../constants';
 import Icon from '../Icon';
 import Logo from '../Logo';
 import SuperHeader from '../SuperHeader';
@@ -41,6 +41,7 @@ const Header = () => {
             as={UnstyledButton}
             size={24}
             id='shopping-bag'
+            onClick={() => console.log('SHSD')}
           />
           <Icon
             aria-label="Search"
@@ -70,10 +71,8 @@ const MainHeader = styled.div`
   display: flex;
   align-items: baseline;
   padding: 18px 32px;
-  height: 72px;
   border-bottom: 1px solid ${COLORS.gray[300]};
-  overflow-x: auto;
-  overflow-y: hidden;
+  overflow: auto;
 
   @media ${QUERIES.mobiles} {
     align-items: center;
@@ -81,7 +80,7 @@ const MainHeader = styled.div`
   }
 
   @media ${QUERIES.phones} {
-    padding: 18px 16px;  
+    padding: 18px 16px;
   }
 `;
 
@@ -103,8 +102,8 @@ const Nav = styled.nav`
   display: flex;
   gap: clamp(
     1rem,
-    4vw - 1rem,
-    5rem
+    9.1vw - 4.2rem,
+    4rem
   );
   margin: 0px 48px;
 

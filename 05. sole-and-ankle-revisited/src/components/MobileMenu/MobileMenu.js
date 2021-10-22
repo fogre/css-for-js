@@ -16,8 +16,9 @@ const MobileMenu = ({ isOpen, onDismiss }) => {
       isOpen={isOpen}
       onDismiss={onDismiss}
     >
-      <Content>
+      <Content aria-label='navigation menu'>
         <Icon
+          aria-label='close menu'
           as={UnstyledButton}
           id='close'
           size={24}

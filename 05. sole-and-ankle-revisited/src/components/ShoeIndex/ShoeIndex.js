@@ -9,32 +9,43 @@ import Spacer from '../Spacer';
 import ShoeSidebar from '../ShoeSidebar';
 import ShoeGrid from '../ShoeGrid';
 
+const ShoeBreadcumbs = () => (
+  <Breadcrumbs>
+    <Breadcrumbs.Crumb href="/">Home</Breadcrumbs.Crumb>
+    <Breadcrumbs.Crumb href="/sale">Sale</Breadcrumbs.Crumb>
+    <Breadcrumbs.Crumb href="/sale/shoes">
+      Shoes
+    </Breadcrumbs.Crumb>
+  </Breadcrumbs>
+)
+
 const ShoeIndex = ({ sortId, setSortId }) => {
   return (
     <Wrapper>
       <MainColumn>
         <Header>
-          <Title>Running</Title>
-          <Select
-            label="Sort"
-            value={sortId}
-            onChange={(ev) => setSortId(ev.target.value)}
-          >
-            <option value="newest">Newest Releases</option>
-            <option value="price">Price</option>
-          </Select>
+          <div>
+            <MobileBreadcumbs>
+              <ShoeBreadcumbs />
+            </MobileBreadcumbs>
+            <Title>Running</Title>
+          </div>
+          <SelectWrapper>
+            <Select
+              label="Sort"
+              value={sortId}
+              onChange={(ev) => setSortId(ev.target.value)}
+            >
+              <option value="newest">Newest Releases</option>
+              <option value="price">Price</option>
+            </Select>
+          </SelectWrapper>
         </Header>
         <Spacer size={32} />
         <ShoeGrid />
       </MainColumn>
       <LeftColumn>
-        <Breadcrumbs>
-          <Breadcrumbs.Crumb href="/">Home</Breadcrumbs.Crumb>
-          <Breadcrumbs.Crumb href="/sale">Sale</Breadcrumbs.Crumb>
-          <Breadcrumbs.Crumb href="/sale/shoes">
-            Shoes
-          </Breadcrumbs.Crumb>
-        </Breadcrumbs>
+        <ShoeBreadcumbs />
         <Spacer size={42} />
         <ShoeSidebar />
       </LeftColumn>
@@ -54,11 +65,23 @@ const LeftColumn = styled.div`
   flex-basis: 248px;
 
   @media ${QUERIES.mobiles} {
-    position: absolute;
-    top: -1rem;
-    left: 0;
+    display: none;
   }
 `;
+
+const MobileBreadcumbs = styled.div`
+  display: none;
+
+  @media ${QUERIES.mobiles} {
+    display: revert;
+  }
+`
+
+const SelectWrapper = styled.div`
+  @media ${QUERIES.phones} {
+    display: none;
+  }
+`
 
 const MainColumn = styled.div`
   flex: 1;
@@ -73,6 +96,10 @@ const Header = styled.header`
   display: flex;
   justify-content: space-between;
   align-items: baseline;
+
+  @media ${QUERIES.mobiles} {
+    align-items: flex-end;
+  }
 `;
 
 
