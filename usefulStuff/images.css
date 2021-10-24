@@ -1,0 +1,103 @@
+/*object fit to put the image inside specific width or hight
+  object position how to acnhor inside none and cover*/
+img {
+ object-fit: cover / contain / none / fill(default);
+ width: 20px;
+ height: 20px;
+ object-position: left top;
+}
+
+/*image to grow wider and wider on larger monitors. On smaller devices, crop it from right*/
+img {
+  width: 100%;
+  min-height: 158px;
+  object-fit: cover;
+  object-position: left center;
+}
+
+/*keep aspect ratio and images the same size*/
+img {
+ width: 30%;
+ aspect-ratio: 1 / 1;
+ object-fit: cover;
+}
+/*if no support for aspect ratio, just use cover*/
+  img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+  }
+
+  @supports (aspect-ratio: 1 / 1) {
+    img {
+      height: revert;
+      aspect-ratio: 1 / 1;
+    }
+  }
+
+
+/*Responsive images*/
+/*multi source*/
+<img
+  alt=""
+  src="/course-materials/responsive-diamond.png"
+  srcset="
+    /course-materials/responsive-diamond.png 1x,
+    /course-materials/responsive-diamond@2x.png 2x,
+    /course-materials/responsive-diamond@3x.png 3x
+  "
+/>
+
+/*picture element with multi source*/
+<picture>
+  <source
+    type="image/avif"
+    srcset="
+      /course-materials/responsive-diamond.avif 1x,
+      /course-materials/responsive-diamond@2x.avif 2x,
+      /course-materials/responsive-diamond@3x.avif 3x
+    "
+  />
+  <source
+    type="image/webp"
+    srcset="
+      /course-materials/responsive-diamond.webp 1x,
+      /course-materials/responsive-diamond@2x.webp 2x,
+      /course-materials/responsive-diamond@3x.webp 3x
+    "
+  />
+  <img
+    alt=""
+    src="/course-materials/responsive-diamond.png"
+  />
+</picture>
+
+
+/*high dpi background images*/
+<style>
+  body {
+    background-image:
+      url('/course-materials/geometric-pattern.png');
+    background-size: 450px;
+  }
+  
+  @media
+    (-webkit-min-device-pixel-ratio: 2),
+    (min-resolution: 2dppx)
+  {
+    body {
+      background-image:
+        url('/course-materials/geometric-pattern@2x.png');
+    }
+  }
+  
+  @media
+    (-webkit-min-device-pixel-ratio: 3),
+    (min-resolution: 3dppx)
+  {
+    body {
+      background-image:
+        url('/course-materials/geometric-pattern@3x.png');
+    }
+  }
+</style>

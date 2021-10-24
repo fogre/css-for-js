@@ -1,0 +1,66 @@
+/*hyphen*/
+p {
+ overflow-wrap: break-word;
+ hyphens: auto;
+
+ /* Prefix for Safari */
+ -webkit-hyphens: auto;
+}
+
+/*single line ellipsis*/
+tbody th {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 250px;
+}
+/*multi line ellipsis (after 3rd line)*/
+p {
+ display: -webkit-box;
+ -webkit-box-orient: vertical;
+ -webkit-line-clamp: 3;
+ overflow: hidden;
+ margin-bottom: 1em;
+}
+
+/*justify text across the width (note on small width, left align is better:
+   Robert Bringhurst explains that text should be "ragged" (fancy typographic word for left-aligned) when using a sans-serif or monospace font, or when there isn't much horizontal space.
+*/
+p {
+ text-align: justify;
+ padding: 16px;
+}
+
+/*PRINT STYLE*/
+/*multi column layout (text into columns!)*/
+.wrapper {
+  columns: 2;
+  column-gap: 16px;
+  padding: 16px;
+}
+
+p {
+  margin-bottom: 16px;
+}
+
+/*Float image in text paragarph (<p>asd</p> <img /> <p>..</p>*/
+  img {
+    float: left;
+    margin-right: 16px;
+  }
+
+/*local variable fonts*/
+@font-face {
+  font-family: 'Recursive';
+  src:
+    url('/fonts/recursive-variable.woff2') format('woff2 supports variations'),
+    url('/fonts/recursive-variable.woff2') format('woff2-variations');
+  font-weight: 300 1000;
+  font-display: fallback;
+}
+
+/*google fonts string with italics
+Raleway:ital,wght@0,100..900;1,100..900&display=swap"
+*/
+
+/*-webkit-font-smoothing: antialiased; for mac users*/
