@@ -1,0 +1,92 @@
+/*holy grail in grid*/
+<style>
+  .wrapper {
+    display: grid;
+    grid-template-columns: 200px 1fr 150px;
+    grid-template-rows: 4rem 1fr 5rem;
+    grid-template-areas:
+      'header header header'
+      'sidebar main ad'
+      'footer footer footer';
+    min-height: 100%;
+    
+  }
+  header {
+    grid-area: header;
+    /*or just use grid-column:1 */
+  }
+  nav {
+    grid-area: sidebar;
+    /*or just use grid-column: 1
+      grid-row: 2 / -2 */
+  }
+  main {
+    grid-area: main;
+  }
+  aside {
+    grid-area: ad;
+  }
+  footer {
+    grid-area: footer;
+  }
+</style>
+<div class="wrapper">
+  <header></header>
+  <nav></nav>
+  <main></main>
+  <aside></aside>
+  <footer></footer>
+</div>
+
+/*THE grid thing*/
+<style>
+  .grid {
+    display: grid;
+    gap: 16px;
+    grid-template-columns:
+      repeat(
+        auto-fill,
+        minmax(min(400px, 100%), 1fr)
+      );
+  }
+</style>
+
+<main class="grid">
+  <div class="item"></div>
+  <div class="item"></div>
+  <div class="item"></div>
+  <div class="item"></div>
+  <div class="item"></div>
+</main>
+
+/*Place content is justify- and align-content at once*/
+<style>
+  .wrapper {
+    display: grid;
+    place-content: center;
+  }
+</style>
+
+/*centered text grid with fixed length, and full bleed merkat image*/
+<style>
+  .wrapper {
+    display: grid;
+    grid-template-columns:
+      1fr
+      min(30ch, 100%)
+      1fr;
+  }
+  .wrapper > * {
+    grid-column: 2;
+  }
+  .full-bleed {
+    grid-column: 1 / -1;
+  }
+  
+  .meerkat {
+    display: block;
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+  }
+</style>

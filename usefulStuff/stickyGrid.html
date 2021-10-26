@@ -1,0 +1,134 @@
+<style>
+    .grid {
+      --header-height: 5rem;
+      display: grid;
+      grid-template-areas:
+        'header header'
+        'sidebar main'
+        'footer footer';
+      grid-template-columns: 14rem 1fr;
+      gap: 16px;
+      max-width: 1200px;
+      margin: 0 auto;
+      isolation: isolate;
+    }
+
+    header {
+      grid-area: header;
+      position: sticky;
+      z-index: 2;
+      top: 0;
+      display: grid;
+      place-content: center;
+      height: var(--header-height);
+      border-bottom: 3px solid;
+      background-color: white;
+    }
+
+    /*
+      The “aside” child is positioned according to
+      grid layout, filling the assigned grid area.
+    */
+    aside {
+      grid-area: sidebar;
+      position: relative;
+      z-index: 1;
+    }
+
+    .sticky-sidebar {
+      position: sticky;
+      top: var(--header-height);
+    }
+
+    main {
+      grid-area: main;
+      /*
+        Add a bunch of height, to simulate it
+        being full of content
+      */
+      min-height: 180vh;
+      border: 3px solid;
+    }
+
+    /*
+      NOTE: In the video, I added the following
+      CSS to the footer:
+
+      position: relative;
+      z-index: 2;
+
+      I've removed it from this final solution,
+      because our sidebar doesn't overlap the
+      footer anymore, so it isn't necessary.
+    */
+    footer {
+      grid-area: footer;
+      display: grid;
+      place-content: center;
+      height: 5rem;
+      border-top: 3px solid;
+      background-color: white;
+    }
+
+    .grid > * {
+      padding: 8px;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+    }
+</style>
+
+<div class="grid">
+  <header>
+    <h1>My Website</h1>
+  </header>
+  <aside>
+    <div class="sticky-sidebar">
+      <h2>Chicken Cacciatore</h2>
+      <nav>
+        <ol>
+          <li>Introduction</li>
+          <li>Prep</li>
+          <li>Cooking</li>
+          <li>Reviews</li>
+          <li>Introduction</li>
+          <li>Prep</li>
+          <li>Cooking</li>
+          <li>Reviews</li>
+          <li>Introduction</li>
+          <li>Prep</li>
+          <li>Cooking</li>
+          <li>Reviews</li>
+          <li>Introduction</li>
+          <li>Prep</li>
+          <li>Cooking</li>
+          <li>Reviews</li>
+          <li>Introduction</li>
+          <li>Prep</li>
+          <li>Cooking</li>
+          <li>Reviews</li>
+          <li>Introduction</li>
+          <li>Prep</li>
+          <li>Cooking</li>
+          <li>Reviews</li>
+          <li>Introduction</li>
+          <li>Prep</li>
+          <li>Cooking</li>
+          <li>Reviews</li>
+          <li>Introduction</li>
+          <li>Prep</li>
+          <li>Cooking</li>
+          <li>Reviews</li>
+        </ol>
+      </nav>
+    </div>
+  </aside>
+  <main>
+    Main Content
+  </main>
+  <footer>
+    Copyright notice
+  </footer>
+</div>
